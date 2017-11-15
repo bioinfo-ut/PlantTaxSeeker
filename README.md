@@ -34,7 +34,7 @@ The optional arguments can also be specified:
 * -f	The <i>k</i>-mer frequency cutoff (only <i>k</i>-mers from nontarget sequences with at least given frequency cutoff will be filtered out from target <i>k</i>-mer list) (by default 10)  
   
 <i>Input files:</i>
-* Unfiltered target taxon specific <i>k</i>-mers list as binary file (the output file of <i>Pipeline_for_identification_taxon_specific_kmers_ver1.py</i>)  
+* Unfiltered target taxon specific <i>k</i>-mers list as binary file (the output file of <i>identification_of_taxon_specific_kmers.py</i>)  
 * Nontarget taxon fastq files for filtering nonspecific <i>k</i>-mers  
 
 <i>Output files:</i>
