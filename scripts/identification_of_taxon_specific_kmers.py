@@ -34,25 +34,25 @@ print("Program starts ...")
 
 #Creating k-mer lists from one (multiple) FASTA file of target sequences:
 targets_file=open(sys.argv[1])
-temporal_file=open("Temp_file.fasta","w")
+temporary_file=open("Temp_file.fasta","w")
 l=0
 for line in targets_file:
     if line.startswith(">"):
         if l>0:
-            temporal_file.close()
+            temporary_file.close()
             os.system("./glistmaker Temp_file.fasta -w "+str(len_window)+" -o Target_list_"+str(l))
-            temporal_file=open("Temp_file.fasta","w")
-            temporal_file.write(line.strip())
-            temporal_file.write("\n")
+            temporary_file=open("Temp_file.fasta","w")
+            temporary_file.write(line.strip())
+            temporary_file.write("\n")
             l+=1
         else:
-            temporal_file.write(line.strip())
-            temporal_file.write("\n")
+            temporary_file.write(line.strip())
+            temporary_file.write("\n")
             l+=1
     else:
-        temporal_file.write(line.strip())
+        temporary_file.write(line.strip())
         
-temporal_file.close()
+temporary_file.close()
 os.system("./glistmaker Temp_file.fasta -w "+str(len_window)+" -o Target_list_"+str(l))
 targets_file.close()
 print("Target(s) kmers done!")
