@@ -41,6 +41,6 @@ The optional arguments can also be specified:
 * Target taxon specific <i>k</i>-mers list as binary file (contains only <i>k</i>-mers that are not in nontarget taxa fastq files)  
 * Target taxon specific <i>k</i>-mers list as TXT file  
 
-### 3. An example: the identification of <i>Solanum lycopersicum</i> specific <i>k</i>-mers (see [README1 file in Github](https://github.com/bioinfo-ut/PlantTaxSeeker/example_files/)):  
-* Chloroplast complete genome sequences for <i>Solanum lycopersicum</i> as the target taxon and for nontarget taxa are available from [Github](https://github.com/bioinfo-ut/PlantTaxSeeker/example_files/)  
-* README file for executing scripts for the identification <i>Solanum lycopersicum</i> specific <i>k</i>-mers are available from [Github](https://github.com/bioinfo-ut/PlantTaxSeeker/example_files/)
+### 3. An example: the identification of <i>Solanum lycopersicum</i> specific <i>k</i>-mers (see [README1 file in Github](https://github.com/bioinfo-ut/PlantTaxSeeker/example/)):  
+* Chloroplast complete genome sequences for <i>Solanum lycopersicum</i> as the target taxon and for nontarget taxa are available [HERE](http://www.bioinfo.ut.ee/PlantTaxSeeker/)  
+* README file for executing scripts for the identification <i>Solanum lycopersicum</i> specific <i>k</i>-mers are available from [Github](https://github.com/bioinfo-ut/PlantTaxSeeker/example)
