@@ -43,7 +43,7 @@ targetfile_cut=targetlist_file.split(".")
 
 #Creating kmers list files from nontarget fastq files ..."
 nontarget_lists=[]
-command="./glistmaker "
+command=""
 if nr_nontargets<=10:
     for j in range(nr_nontargets):
         command=command+"./glistmaker "+nontarget_fastqs[j]+" -w "+str(len_window)+" -o nontarget"+str(j+1)+" & "
