@@ -8,6 +8,8 @@ chmod 755 glistquery
 chmod 755 glistmaker
 chmod 755 glistcompare
 chmod 755 MakeUnion.pl
+chmod 755 identification_of_taxon_specific_kmers.py
+chmod 755 filtering_with_nontargets.py
 
 # Download FASTQ and FASTA files
 echo Downloading files ...
