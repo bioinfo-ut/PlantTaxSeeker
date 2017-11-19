@@ -2,7 +2,7 @@
 #Script for testing identification S. lycopersicum specific k-mers
 
 cp ../bin/* .
-cp ../script/* .
+cp ../scripts/* .
 
 chmod 755 glistquery
 chmod 755 glistmaker
