@@ -25,7 +25,7 @@ gunzip *gz
 
 # Identify k-mers that are specific to Solanum lycopersicum
 echo Identification of S. lycopersicum specific k-mers ...
-python identification_of_taxon_specific_kmers.py Solanum_lycopersicum_complete_genomes_07Jan16.fasta -f 2
+python identification_of_taxon_specific_kmers.py Solanum_lycopersicum_complete_chl_genomes_07Jan16.fasta Nontarget_taxa_complete_chl_genomes_07Jan16.fasta -f 2
 
 # Run additional filtering with raw reads of nontarget genomes
 echo Additional filtering ...
