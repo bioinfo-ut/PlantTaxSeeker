@@ -13,7 +13,7 @@ FASTA files contain 5 <i>S. lycopersicum</i> and 1714 nontarget taxa chloroplast
 Use following command lines to perform the example analysis ("bash test.sh" downloads FASTA and FASTQ files, moves bins and scripts needed for analysis to the folder "example" and executes scripts):
 ```  
 git clone https://github.com/bioinfo-ut/PlantTaxSeeker/
-cd PlantSeeker/example/
+cd PlantTaxSeeker/example/
 bash test.sh
 ```  
    
