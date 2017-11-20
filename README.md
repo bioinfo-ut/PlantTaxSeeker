@@ -42,4 +42,4 @@ The optional arguments can also be specified:
 * Target taxon specific <i>k</i>-mers list as TXT file  
 
 ### 3. An example: the identification of <i>Solanum lycopersicum</i> specific <i>k</i>-mers:  
-README file for executing scripts for the identification <i>Solanum lycopersicum</i> specific <i>k</i>-mers are available in [Github](https://github.com/bioinfo-ut/PlantTaxSeeker/blob/master/example/README1.md)
+README file for executing scripts for the identification <i>Solanum lycopersicum</i> specific <i>k</i>-mers are available in [Github](https://github.com/bioinfo-ut/PlantTaxSeeker/blob/master/example/README.md)
