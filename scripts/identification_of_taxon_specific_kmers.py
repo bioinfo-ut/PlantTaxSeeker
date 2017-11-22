@@ -69,17 +69,25 @@ else:
     print("Target kmers' frequencies modifying FAILED!!!")
 
 #Finding the union of target k-mer lists (output: "union_..._union.list"):
-if l>1:
+if l>2:
     os.system("./MakeUnion.pl *.list")
     print("Universal targets' kmers selected!")
     #Finding and removing k-mers that are not represented in specified number of target sequences (by default: removing k-mers that are represented in only 1 sequences - individual specific k-mers):
     os.system("./glistcompare union_"+str(len_window)+"_union.list union_"+str(len_window)+"_union.list -i -r first -c "+str(kmer_freq)+" -o union_"+str(len_window)+"_union_freq"+str(kmer_freq))
-    print("Target kmers with frequency more than "+str(kmer_freq)+" selected!")
+    print("Target kmers with frequency >= "+str(kmer_freq)+" are selected!")
 else:
-    if l==1:
-        os.system("mv Target_list_1_corrfreq_"+str(len_window)+"_intrsec.list union_"+str(len_window)+"_union_freq"+str(kmer_freq)+"_"+str(len_window)+"_intrsec.list")
+    if l==2:
+        os.system("./glistcompare Target_list_1_corrfreq_"+str(len_window)+"_intrsec.list Target_list_1_corrfreq_"+str(len_window)+"_intrsec.list -u -o union")
+        print("Universal targets' kmers selected!")
+        #Finding and removing k-mers that are not represented in specified number of target sequences (by default: removing k-mers that are represented in only 1 sequences - individual specific k-mers):
+        os.system("./glistcompare union_"+str(len_window)+"_union.list union_"+str(len_window)+"_union.list -i -r first -c "+str(kmer_freq)+" -o union_"+str(len_window)+"_union_freq"+str(kmer_freq))
+        print("Target kmers with frequency >= "+str(kmer_freq)+" are selected!")
     else:
-        print("Couldn´t find any target sequences!")
+        if l==1:
+            os.system("mv  union_"+str(len_window)+"_union_freq"+str(kmer_freq)+"_"+str(len_window)+"_intrsec.list")
+            print("Universal targets' kmers selected!")
+        else:
+            print("Couldn´t find any target sequences!")
 #Creating k-mer lists of nontarget taxons:
 nontargets_file_name=str(sys.argv[2])
 os.system("./glistmaker "+nontargets_file_name+" -w "+str(len_window)+" -o Nontarget_kmers")
@@ -100,7 +108,9 @@ os.remove("union_"+str(len_window)+"_union_freq"+str(kmer_freq)+"_"+str(len_wind
 os.remove("Nontarget_kmers_"+str(len_window)+".list")
 for k in range(l):
     os.remove("Target_list_"+str(k+1)+"_corrfreq_"+str(len_window)+"_intrsec.list")
-os.system("rm -r union_*")
+if l>2:
+    os.remove("union_"+str(len_window)+"_union.list")
+    os.system("rm -r union_*")
 os.system("mv Specific_kmers_"+str(len_window)+"_0_diff1.list Specific_kmers_"+str(len_window)+".list")
 
 
