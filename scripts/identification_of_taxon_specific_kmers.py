@@ -109,7 +109,6 @@ os.remove("Nontarget_kmers_"+str(len_window)+".list")
 for k in range(l):
     os.remove("Target_list_"+str(k+1)+"_corrfreq_"+str(len_window)+"_intrsec.list")
 if l>2:
-    os.remove("union_"+str(len_window)+"_union.list")
     os.system("rm -r union_*")
 os.system("mv Specific_kmers_"+str(len_window)+"_0_diff1.list Specific_kmers_"+str(len_window)+".list")
 
