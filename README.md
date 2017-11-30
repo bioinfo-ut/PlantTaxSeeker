@@ -1,6 +1,8 @@
 # IDENTIFICATION OF PLANT TAXON SPECIFIC K-MERS  
 Scripts for identification taxon-specific <i>k</i>-mers from plant genomes.  
-
+  
+PlantTaxSeeker scripts are licensed under the GPLv3 license.  
+  
 The scripts consists predominantly of code written in Python (tested in UNIX server with Python versions 2.7 and 3.3) and also use:  
 `glistmaker`, `glistcompare`, `glistquery` and `MakeUnion.pl` from the [GenomeTester4 package](https://github.com/bioinfo-ut/GenomeTester4/)
 
