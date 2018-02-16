@@ -84,7 +84,7 @@ else:
         print("Target kmers with frequency >= "+str(kmer_freq)+" are selected!")
     else:
         if l==1:
-            os.system("mv  union_"+str(len_window)+"_union_freq"+str(kmer_freq)+"_"+str(len_window)+"_intrsec.list")
+            os.system("mv Target_list_1_corrfreq_"+str(len_window)+"_intrsec.list union_"+str(len_window)+"_union_freq"+str(kmer_freq)+"_"+str(len_window)+"_intrsec.list")
             print("Universal targets' kmers selected!")
         else:
             print("Couldn´t find any target sequences!")
@@ -103,14 +103,15 @@ print("Specific kmers are visible in textfile now!")
 
 #Deleting unnecessary files ...
 os.remove("Temp_file.fasta")
-os.remove("union_"+str(len_window)+"_union.list")
 os.remove("union_"+str(len_window)+"_union_freq"+str(kmer_freq)+"_"+str(len_window)+"_intrsec.list")
 os.remove("Nontarget_kmers_"+str(len_window)+".list")
-for k in range(l):
-    os.remove("Target_list_"+str(k+1)+"_corrfreq_"+str(len_window)+"_intrsec.list")
+if l>1:
+    for k in range(l):
+        os.remove("Target_list_"+str(k+1)+"_corrfreq_"+str(len_window)+"_intrsec.list")
 if l>2:
     os.system("rm -r union_*")
 os.system("mv Specific_kmers_"+str(len_window)+"_0_diff1.list Specific_kmers_"+str(len_window)+".list")
-
+if os.path.isfile("union_"+str(len_window)+"_union.list"):
+    os.remove("union_"+str(len_window)+"_union.list")
 
 print("Done!")
