@@ -66,7 +66,7 @@ print("Filtering nonspecific kmers ...")
 os.system("./glistcompare "+targetlist_file+" Nontarget1_cutoff"+str(freq_cutoff)+"_"+str(len_window)+"_intrsec.list -d -o "+targetfile_cut[0]+"_not_in_nontarget1")
 if nr_nontargets>1:
     for l in range(nr_nontargets-1):
-        os.system("glistcompare "+targetfile_cut[0]+"_not_in_nontarget"+str(l+1)+"_"+str(len_window)+"_0_diff1.list Nontarget"+str(l+2)+"_cutoff"+str(freq_cutoff)+"_"+str(len_window)+"_intrsec.list -d -o "+targetfile_cut[0]+"_not_in_nontarget"+str(l+2))
+        os.system("./glistcompare "+targetfile_cut[0]+"_not_in_nontarget"+str(l+1)+"_"+str(len_window)+"_0_diff1.list Nontarget"+str(l+2)+"_cutoff"+str(freq_cutoff)+"_"+str(len_window)+"_intrsec.list -d -o "+targetfile_cut[0]+"_not_in_nontarget"+str(l+2))
 
     print("Removing files ...")
     for m in range(nr_nontargets):
