@@ -1,4 +1,4 @@
-# AN EXAMPLE OF DETECTION AND COUNTING <i>Lupinus spp.</i> SPECIFIC <i>K</i>-MERS DIRECTLY FROM  WGS READS FROM LUPIN-CONTAINING COOKIE 
+# AN EXAMPLE OF DETECTION AND COUNTING <i>LUPINUS SPP.</i> SPECIFIC <i>K</i>-MERS DIRECTLY FROM  WGS READS FROM LUPIN-CONTAINING COOKIE 
 In this example we are detecting and counting <i>Lupinus spp.</i> specific <i>k</i>-mers with length 32 bases present in WGS reads from COOKIE containing 5% lupin flour in wheat flour.
   
 Before you can start, you need to:
