@@ -2,7 +2,7 @@
 In this example we are detecting and counting <i>Lupinus spp.</i> specific <i>k</i>-mers with length 32 bases present in WGS reads from COOKIE containing 5% lupin flour in wheat flour.
   
 Before you can start, you need to:
-* a) identify <i>Lupinus spp.</i> specific <i>k</i>-mers with length 32 bases, using the pipeline described for the identification of plant taxa specific <i>k</i>-mers [HERE](https://github.com/bioinfo-ut/PlantTaxSeeker), example for <i>S. lycopersicum</i> is [HERE](https://github.com/bioinfo-ut/PlantTaxSeeker/blob/master/example/README.md), or use our example file of <i>Lupinus spp.</i> specific <i>k</i>-mers).
+* a) identify <i>Lupinus spp.</i> specific <i>k</i>-mers with length 32 bases, using the pipeline described for the identification of plant taxa specific <i>k</i>-mers [HERE](https://github.com/bioinfo-ut/PlantTaxSeeker), example for <i>S. lycopersicum</i> is [HERE](https://github.com/bioinfo-ut/PlantTaxSeeker/blob/master/example/README.md), or use our example file of <i>Lupinus spp.</i> specific <i>k</i>-mers.
 * b) download PlantTaxSeeker repository containing bins, scripts and readme files from [Github](https://github.com/bioinfo-ut/PlantTaxSeeker) 
 * c) move to the folder "example2"
 * d) download sequencing data of cookie sample as FASTQ-format file and the list of <i>Lupinus spp.</i> specific <i>k</i>-mers with length 32 bases [HERE](http://www.bioinfo.ut.ee/PlantTaxSeeker/).    
