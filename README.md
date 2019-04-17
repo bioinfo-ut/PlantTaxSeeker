@@ -1,65 +1,20 @@
-# IDENTIFICATION OF PLANT TAXON SPECIFIC K-MERS AND COUNTING K-MERS FROM METAGENOMIC WGS READS 
-Scripts for identification taxon-specific <i>k</i>-mers from plant genomes and for the detection and counting the k-mers directly from WGS reads of metagenomic sample.  
+# AN EXAMPLE OF IDENTIFICATION <i>S. LYCOPERSICUM</i> SPECIFIC <i>K</i>-MERS   
+In this example we are identifying <i>S. lycopersicum</i> specific <i>k</i>-mers with length 32 bases that are present in at least 2 of 5 <i>S. lycopersicum</i> chloroplast genome and none of the given 1714 nontarget taxa chloroplast genome.
+We also filter out <i>k</i>-mers that are present in <i>S. tuberosum</i> or <i>S. pimpinellifolium</i> whole sequencing raw reads with frequency at least 10. Sequencing reads are downloaded from NCBI SRA database.
   
-PlantTaxSeeker scripts are licensed under the GPLv3 license.  
-  
-The scripts consists predominantly of code written in Python (tested in UNIX server with Python versions 2.7 and 3.3) and also use:  
-`glistmaker`, `glistcompare`, `glistquery`, `MakeUnion.pl` and `gmer_counter` from the [GenomeTester4 package](https://github.com/bioinfo-ut/GenomeTester4/)
+Before you can start, you need to:
+* a) download PlantTaxSeeker repository containing bins, scripts and readme files from [Github](https://github.com/bioinfo-ut/PlantTaxSeeker)  
+* b) move to the folder "example"   
+* c) download <i>S. lycopersicum</i> and nontarget taxa chloroplast genome sequences as FASTA format files, and also sequencing data of 4 samples as FASTQ-format files from [HERE](http://www.bioinfo.ut.ee/PlantTaxSeeker/).    
+    
+Make sure you have enough space for storing these files. FASTA files that are used in this example are ca  255 MB. The FASTQ files are ca 157 GB unpacked. The results files containing <i>k</i>-mers´ lists are ca 100 KB.    
+FASTA files contain 5 <i>S. lycopersicum</i> and 1714 nontarget taxa chloroplast genome sequences. FASTQ files contain whole genome sequencing raw reads of 4 samples of <i>S. tuberosum</i> or <i>S. pimpinellifolium</i> (NCBI SRA accession numbers ERR418080, SRR1608100, SRR2069941 and SRR1481624).
 
-## Usage
-### 1. To identify target taxon specific <i>k</i>-mers, use command:  
-
-```
-python identification_of_taxon_specific_kmers.py <Targets.fasta> <Nontargets.fasta> [optional_arguments]
-```
-
-The optional arguments can also be specified:  
-* -w Length of the <i>k</i>-mer (default value 32)  
-* -f The minimum number of target sequences that should contain every specific <i>k</i>-mers (default value 1)  
-
-<i>Input files:</i>  
-* Target taxon genome sequences as FASTA format file  
-* Nontarget taxa genome sequences as FASTA format file  
-
-<i>Output files:</i>   
-* The list of target taxon specific <i>k</i>-mers (the count of <i>k</i>-mers and sequences) as binary file  
-* The list of target taxon specific <i>k</i>-mers (the count of <i>k</i>-mers and sequences) as TEXT file  
-
-### 2. To filter out additional non-specific <i>k</i>-mers using whole genome sequencing raw reads or assembled sequences of nontarget taxa, use command.  
-
-```
-python filtering_with_nontargets.py <Specific_kmers.list> <Nontarget1.fastq> [Nontargets fastqs] [optional_arguments]
-```
-
-The optional arguments can also be specified:  
-* -w	Length of the <i>k</i>-mer (bases, by default 32)  
-* -f	The <i>k</i>-mer frequency cutoff (only <i>k</i>-mers from nontarget sequences with at least given frequency cutoff will be filtered out from target <i>k</i>-mer list) (by default 10)  
-  
-<i>Input files:</i>
-* Unfiltered target taxon specific <i>k</i>-mers list as binary file (the output file of <i>identification_of_taxon_specific_kmers.py</i>)  
-* Nontarget taxon fastq files for filtering nonspecific <i>k</i>-mers  
-
-<i>Output files:</i>
-* Target taxon specific <i>k</i>-mers list as binary file (contains only <i>k</i>-mers that are not in nontarget taxa fastq files)  
-* Target taxon specific <i>k</i>-mers list as TXT file  
-
-### An example: the identification of <i>Solanum lycopersicum</i> specific <i>k</i>-mers:  
-README file for executing scripts for the identification <i>Solanum lycopersicum</i> specific <i>k</i>-mers are available in [Github](https://github.com/bioinfo-ut/PlantTaxSeeker/blob/master/example/README.md)
-
-### 3. To detect and count plant taxa specific <i>k</i>-mers from whole genome sequencing raw reads of metagenomic sample, use command.  
-
-```
-python plant_taxa_kmers_counter.py <Specific_kmers.list> <Metagenomic_sample.fastq> [optional_argument]
-```
-
-The optional argument can also be specified:    
-* -f	The <i>k</i>-mer frequency cutoff (only <i>k</i>-mers with at least given frequency cutoff will be counted from metagenomic sequencing reads) (by default 1)  
-  
-<i>Input files:</i>
-* Target taxon specific <i>k</i>-mers list as TXT file (the output file of <i>identification_of_taxon_specific_kmers.py</i>)  
-* fastq file of WGS reads from metagenomic sample  
-
-<i>Output</i>
-*  The count of detected target plant taxon specific <i>k</i>-mers in WGS reads from metagenomic sample.
-### An example: the identification of <i>Lupinus spp.</i> specific <i>k</i>-mers and counting <i>Lupinus spp.</i> specific <i>k</i>-mers from WGS reads of lupin-containing cookie:  
-README file for executing scripts for the identification <i>Lupinus spp.</i> specific <i>k</i>-mers and for counting of <i>Lupinus spp.</i> specific <i>k</i>-mers from cookie WGS data are available in [Github](https://github.com/bioinfo-ut/PlantTaxSeeker/blob/master/example2/README.md)
+Use following command lines to perform the example analysis ("bash test.sh" downloads FASTA and FASTQ files, moves bins and scripts needed for analysis to the folder "example" and executes scripts):
+```  
+git clone https://github.com/bioinfo-ut/PlantTaxSeeker/
+cd PlantTaxSeeker/example/
+bash test.sh
+```  
+   
+The 4 results files contain the lists of <i>S. lycopersicum</i> specific <i>k</i>-mers before ("Specific_kmers_32.txt", "Specific_kmers_32.list) and after additional filtering. <i>K</i>-mers´ lists are given as binary files (enables additional operations using GenomeTester4 programs) and also as human readable TXT files.  
