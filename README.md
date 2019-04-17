@@ -43,5 +43,23 @@ The optional arguments can also be specified:
 * Target taxon specific <i>k</i>-mers list as binary file (contains only <i>k</i>-mers that are not in nontarget taxa fastq files)  
 * Target taxon specific <i>k</i>-mers list as TXT file  
 
-### 3. An example: the identification of <i>Solanum lycopersicum</i> specific <i>k</i>-mers:  
+### An example: the identification of <i>Solanum lycopersicum</i> specific <i>k</i>-mers:  
 README file for executing scripts for the identification <i>Solanum lycopersicum</i> specific <i>k</i>-mers are available in [Github](https://github.com/bioinfo-ut/PlantTaxSeeker/blob/master/example/README.md)
+
+### 3. To detect and count plant taxa specific <i>k</i>-mers from whole genome sequencing raw reads of metagenomic sample, use command.  
+
+```
+python plant_taxa_kmers_counter.py <Specific_kmers.list> <Metagenomic_sample.fastq> [optional_argument]
+```
+
+The optional argument can also be specified:    
+* -f	The <i>k</i>-mer frequency cutoff (only <i>k</i>-mers with at least given frequency cutoff will be counted from metagenomic sequencing reads) (by default 1)  
+  
+<i>Input files:</i>
+* Target taxon specific <i>k</i>-mers list as TXT file (the output file of <i>identification_of_taxon_specific_kmers.py</i>)  
+* fastq file of WGS reads from metagenomic sample  
+
+<i>Output</i>
+*  The count of detected target plant taxon specific <i>k</i>-mers in WGS reads from metagenomic sample.
+### An example: the identification of <i>Lupinus spp.</i> specific <i>k</i>-mers and counting <i>Lupinus spp.</i> specific <i>k</i>-mers from WGS reads of lupin-containing cookie:  
+README file for executing scripts for the identification <i>Lupinus spp.</i> specific <i>k</i>-mers and for counting of <i>Lupinus spp.</i> specific <i>k</i>-mers from cookie WGS data are available in [Github](https://github.com/bioinfo-ut/PlantTaxSeeker/blob/master/example2/README.md)
